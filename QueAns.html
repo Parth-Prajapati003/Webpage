@@ -24,7 +24,7 @@ body {
 
 body {
 	line-height: 1.5;
-	white-space: pre-wrap;
+	white-space: normal;
 }
 
 a,
@@ -267,6 +267,16 @@ ol > li {
 	margin-left: -1.1em;
 }
 
+pre {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: auto;
+}
+.step {
+    margin-bottom: 20px;
+}
 .selected-value {
 	display: inline-block;
 	padding: 0 0.5em;
@@ -677,32 +687,105 @@ blockquote {
 </p><p id="6b749568-7b15-4d00-ac85-65c826f32c71" class="">
 </p><p id="b1e7bbcb-cb61-4a82-b60a-ef22304d461f" class=""><strong>Que 1 :</strong></p><h2 id="8a5e03d1-3585-4c76-a3cb-9b913dfdbe92" class=""><strong>What is the process of Spring initialisation ? Complete step by step with demonstration thru logs.</strong></h2><p id="dcdb90c1-79ab-4967-933e-df3039b56e54" class="">Spring Initialization :</p><p id="8a5abf99-b23e-4d6a-95fc-1ae38077ce22" class="">
 </p><ol type="1" id="cfcfa564-09dd-4167-a6dc-9349b91cbb97" class="numbered-list" start="1"><li><strong>Application Startup</strong>: Spring Boot initializes the application context when the application starts.</li></ol><ol type="1" id="fdb512c9-1c74-4d0f-a630-b9b6e71392ae" class="numbered-list" start="2"><li>Profile Check : It checks for the any specific Profile. If not specified it will run as a “default” profile.</li></ol><ol type="1" id="975f9304-c10a-4781-9288-84e6bb7c76d9" class="numbered-list" start="3"><li><strong>Component Scanning</strong>: Spring scans the classpath for components, such as beans annotated with @Component, @Service, @Repository, or @Controller.</li></ol><ol type="1" id="63944b4a-8441-44b9-abcf-865568dde152" class="numbered-list" start="4"><li><strong>Bean Registration and nitialization</strong>: Spring registers these components as beans in the application context. Also Spring initializes the beans, which involves instantiating them and configuring their properties.</li></ol><ol type="1" id="46fb8c87-07e7-4767-8ea4-5820f98be029" class="numbered-list" start="5"><li><strong>Dependency Injection</strong>: Spring injects dependencies into the beans.</li></ol><ol type="1" id="6e63f2c2-aeb8-4a77-be0b-3df559b69212" class="numbered-list" start="6"><li>Servelet Starts : It starts the server. In our case it starts tomcate server.</li></ol><p id="1a558951-0a24-447c-acea-c270001cba5e" class=""><br/>Lets Understand it using Logs :<br/></p><p id="79a24875-32c3-4f7c-bb6f-ea110427948e" class="">
-</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9cb3bdb6-ff57-4931-9ff4-800760e026e1" class="code"><code class="language-Java">2024-02-06T21:54:48.510+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : Starting WorkManagementApplication using Java 21.0.2 with PID 79387 (/Users/parth.prajapati/IdeaProjects/WorkManagement/build/cla...
-2024-02-06T21:54:48.511+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-02-06T21:54:48.900+05:30  INFO 79387 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2024-02-06T21:54:48.913+05:30  INFO 79387 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 MongoDB repository interfaces.
-2024-02-06T21:54:49.178+05:30  INFO 79387 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-02-06T21:54:49.188+05:30  INFO 79387 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-06T21:54:49.188+05:30  INFO 79387 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-06T21:54:49.224+05:30  INFO 79387 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-06T21:54:49.225+05:30  INFO 79387 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 672 ms
-2024-02-06T21:54:50.412+05:30  INFO 79387 --- [           main] org.mongodb.driver.client                : MongoClient with metadata {&quot;driver&quot;: {&quot;name&quot;: &quot;mongo-java-driver|sync|spring-boot&quot;, &quot;version&quot;: &quot;4.11.1&quot;}, &quot;os&quot;: {&quot;type&quot;: &quot;Darwin&quot;, ...
-2024-02-06T21:54:50.449+05:30  INFO 79387 --- [ehw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-howif0x-shard-00-01.j5u0ehw.mongodb.net:27017 to client view of cluster
-2024-02-06T21:54:50.467+05:30  INFO 79387 --- [ehw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-howif0x-shard-00-02.j5u0ehw.mongodb.net:27017 to client view of cluster
-2024-02-06T21:54:50.470+05:30  INFO 79387 --- [ehw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-howif0x-shard-00-00.j5u0ehw.mongodb.net:27017 to client view of cluster
-BeanA constructor called !!!
-BeanB constructor called !!!
-Setting property beanA of BeanB instance
-2024-02-06T21:54:50.793+05:30  INFO 79387 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path &#x27;&#x27;
-2024-02-06T21:54:50.799+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : Started WorkManagementApplication in 2.528 seconds (process running for 3.054)
-2024-02-06T21:54:50.898+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-howif0x-shard-00-00.j5u0ehw.mongodb.net...
-2024-02-06T21:54:50.898+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-howif0x-shard-00-01.j5u0ehw.mongodb.net...
-2024-02-06T21:54:50.898+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-howif0x-shard-00-02.j5u0ehw.mongodb.net...
-2024-02-06T21:54:50.902+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Discovered replica set primary ac-howif0x-shard-00-01.j5u0ehw.mongodb.net:27017 with max election id 7fffffff0000000000000006 and max set version 1</code></pre><p id="7063a8f8-4706-4ba9-b033-37e44a870282" class="">
-</p><ol type="1" id="a8e015b4-cf48-4057-9791-56634141211e" class="numbered-list" start="1"><li><strong>Application Startup</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0e7d0bcf-469a-4a3e-9bd1-ec99153e36d7" class="code"><code class="language-Java">2024-02-06T21:54:48.510+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : Starting WorkManagementApplication using Java 21.0.2 with PID 79387 (/Users/parth.prajapati/IdeaProjects/WorkManagement/build/cla...</code></pre></li></ol><ol type="1" id="7766e3f6-edac-4e6f-8f0e-cfab33c301ee" class="numbered-list" start="2"><li>Profile Check<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a11d5115-dd6a-4d76-a5b0-3c294feb87f3" class="code"><code class="language-Java">2024-02-06T21:54:48.511+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : No active profile set, falling back to 1 default profile: &quot;default&quot;</code></pre></li></ol><ol type="1" id="f43ef989-8026-4acb-84fc-9cca8aed6c84" class="numbered-list" start="3"><li>Component Scanning:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1dd9d5dc-8c0f-48a0-ae0f-ca86826f618a" class="code"><code class="language-Java">2024-02-06T21:54:48.913+05:30  INFO 79387 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 MongoDB repository interfaces.</code></pre><p id="bf542fac-10be-4489-bf8d-249f9bbd406b" class="">Other component (i.e. Controller, Service ,..) scanning does not have logs.</p></li></ol><ol type="1" id="1f8239bd-2892-49af-bdbe-4a9821444cd2" class="numbered-list" start="4"><li><strong>Bean Registration and Initialization</strong></li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1bc3c236-b675-452d-b7ad-98c0ff10e48b" class="code"><code class="language-Java">BeanA constructor called !!!
-BeanB constructor called !!!</code></pre><p id="fde0aae7-e30b-4b61-9061-06cb52b4c872" class="">Here Bean for class BeanA and BeanB is created.</p><p id="d76cf7db-39c3-4df0-bbff-ea058126aab7" class="">
-</p><ol type="1" id="b9212fe0-2715-4b7d-ab33-c3d977d422c2" class="numbered-list" start="5"><li>Dependency Injection :<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ac39d0a4-6f1c-4764-89b1-3656178bf86e" class="code"><code class="language-Java">Setting property beanA of BeanB instance</code></pre><p id="8964c94d-7662-404a-ab2d-7e5fba41d5fa" class="">BeanB class calles dependency of class BeanA.</p><p id="f9e8f751-50c5-4752-8924-7b08203270b4" class="">
-</p></li></ol><ol type="1" id="e8db2de6-c504-44f9-a024-c553fbb5489d" class="numbered-list" start="6"><li>Starts Tomcate Server <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="65b7a36a-0f05-46cb-8f97-cb83fe0a85ab" class="code"><code class="language-Java">2024-02-06T21:54:50.793+05:30  INFO 79387 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path &#x27;&#x27;</code></pre><p id="f969adc7-3ac8-4f96-9f52-36ce0d6842b1" class="">
+
+<h1>Spring Framework Initialization Process</h1>
+<p>An in-depth step-by-step guide through the initialization of a Spring Boot application.</p>
+
+<div class="step">
+    <h2>1. Starting the Application</h2>
+    Spring Boot starts by running the main method, which typically calls SpringApplication.run().
+    <pre>2024-02-02 10:15:30.123  INFO Starting MyApplication on my-computer with PID 12345 (...)</pre>
+
+</div>
+
+<div class="step">
+    <h2>2. Preparing the Environment</h2>
+    Spring sets up the application environment, loading application properties and profiles.
+    <pre>2024-02-02 10:15:30.456  INFO No active profile set, falling back to default profiles: default (...)</pre>
+</div>
+
+<div class="step">
+    <h2>3. Creating the ApplicationContext</h2>
+    Spring Boot then chooses an appropriate ApplicationContext type and initializes it.
+    <pre>2024-02-02 10:15:30.789  INFO Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext (...)</pre>
+</div>
+
+<div class="step">
+    <h2>4. Bean Definitions Loading</h2>
+    Bean definitions are loaded from component scanning, @Configuration classes, or XML files.
+    <pre>2024-02-02 10:15:31.012  INFO Mapped @Component / @Service / @Repository / @Controller (...)</pre>
+</div>
+
+<div class="step">
+    <h2>5. BeanFactoryPostProcessor Execution</h2>
+    Registered BeanFactoryPostProcessors are called, which allows for modification of bean definitions before they are instantiated.
+    BeanFactoryPostProcessors are part of the Spring IoC container's bean creation process. They work on the bean factory itself, allowing for the customization of bean definitions before the container instantiates any beans.
+
+    How It Works:
+    <ul>
+        <li>The ApplicationContext identifies all beans that implement the <code>BeanFactoryPostProcessor</code> interface during startup.</li>
+        <li>It then invokes the <code>postProcessBeanFactory</code> method on each one.</li>
+        <li>This method can modify the bean definitions, add new bean definitions, or even remove bean definitions.</li>
+        <li>This step occurs before any bean instances are created.</li>
+    </ul>
+
+    Typical Log Output for BeanFactory Post-Processors:
+
+    <pre>2024-02-02 10:15:31.234  INFO Running BeanFactoryPostProcessor 'myBeanFactoryPostProcessor' (...)</pre>
+</div>
+
+<div class="step">
+    <h2>6. Bean Instantiation</h2>
+    Beans are created, and dependency injection is performed. Singleton scoped beans are created at this stage unless they are lazily initialized.
+    <pre>2024-02-02 10:15:31.456  INFO Creating shared instance of singleton bean 'mySingletonBean' (...)</pre>
+</div>
+
+<div class="step">
+    <h2>7. BeanPostProcessor Execution</h2>
+    Spring processes the beans with registered BeanPostProcessors, which can modify the bean instances after they have been instantiated but before they are ready for use.
+    BeanPostProcessors come into play after the BeanFactoryPostProcessors and work on the bean instances themselves, rather than the definitions. They are used to perform some actions on the bean instance before and after it is initialized (i.e., before and after its initialization callbacks such as @PostConstruct methods or InitializingBean's afterPropertiesSet).
+
+    How It Works:
+    <ul>
+        <li>The ApplicationContext identifies all beans that implement the <code>BeanPostProcessor</code> interface during startup.</li>
+        <li>It then registers these for later callbacks, which are applied to every bean instance.</li>
+        <li>The <code>postProcessBeforeInitialization</code> method is called before a bean's initialization callbacks are invoked.</li>
+        <li>The <code>postProcessAfterInitialization</code> method is called after the bean's initialization callbacks have been invoked.</li>
+    </ul>
+
+    Typical Log Output for Bean Post-Processors:
+
+    <pre>2024-02-02 10:15:31.678  INFO Bean 'myBeanPostProcessor' of type [com.example.MyBeanPostProcessor] is not eligible for getting processed by all BeanPostProcessors (...)</pre>
+</div>
+
+<div class="step">
+    <h2>8. Initialization Methods Execution</h2>
+    The container calls any bean initialization callbacks, such as InitializingBean.afterPropertiesSet or custom init-methods.
+    <pre>2024-02-02 10:15:31.890  INFO Invoking afterPropertiesSet() on bean with name 'myInitializerBean' (...)</pre>
+</div>
+
+<div class="step">
+    <h2>9. Application Event Publishing</h2>
+    Spring publishes various types of application events, including ContextRefreshedEvent, ApplicationStartedEvent, and others.
+    <pre>2024-02-02 10:15:32.012  INFO Publishing ApplicationEvent to start application (...)</pre>
+</div>
+
+<div class="step">
+    <h2>10. Web Server Starting</h2>
+    If the application is a web application, the embedded server (like Tomcat) is started.
+    <pre>2024-02-02 10:15:32.234  INFO Tomcat started on port(s): 8080 (http) with context path '' (...)</pre>
+</div>
+<div class="step">
+    <h2>11. Application-Ready Event</h2>
+    The application is fully started and ready to serve requests.
+    <pre>2024-02-02 10:15:32.456  INFO Started MyApplication in 4.567 seconds (JVM running for 5.678)</pre>
+</div>
+<div class="step">
+    <h2>12. Shutdown Hook Registration</h2>
+    A shutdown hßook is registered so that the application context can be closed gracefully when the JVM is shutting down.
+    <pre>2024-02-02 10:15:32.678  INFO JVM shutdown hook added to close the ApplicationContext (...)</pre>
+</div>
+
 </p><p id="1acc96f6-f69d-47dd-a947-8df84f3821fa" class="">
 </p></li></ol><h2 id="9ab4d0ea-456b-4cbc-9538-bc95ee906c1b" class="">Que : 2</h2><h3 id="54d05f09-3798-4f8e-8db0-085461cce546" class="">In code, you will see SpringLoadTest what does it do ?</h3><p id="39efae42-943a-4398-8fb8-7885d661e0fc" class="">
 </p><p id="5d823647-218f-4adb-bb0b-e6988ab57471" class="">First it Starts Spring configuration using FasterApplicationContext and Security context. Counts the time taken to Initialize it. </p><p id="7a10980b-1f4c-4b77-bc35-30748fe6b1e2" class="">It loggs the time taken for initialization in error log.</p><p id="05f71b2f-4a04-4876-9fc4-5cc50816072f" class="">
