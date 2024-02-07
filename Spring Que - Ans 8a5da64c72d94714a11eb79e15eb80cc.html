@@ -1,0 +1,768 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Spring Que - Ans</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8a5da64c-72d9-4714-a11e-b79e15eb80cc" class="page sans"><header><h1 class="page-title">Spring Que - Ans</h1><p class="page-description"></p></header><div class="page-body"><p id="6b749568-7b15-4d00-ac85-65c826f32c71" class="">
+</p><p id="b1e7bbcb-cb61-4a82-b60a-ef22304d461f" class=""><strong>Que 1 :</strong></p><h2 id="8a5e03d1-3585-4c76-a3cb-9b913dfdbe92" class=""><strong>What is the process of Spring initialisation ? Complete step by step with demonstration thru logs.</strong></h2><p id="dcdb90c1-79ab-4967-933e-df3039b56e54" class="">Spring Initialization :</p><p id="8a5abf99-b23e-4d6a-95fc-1ae38077ce22" class="">
+</p><ol type="1" id="cfcfa564-09dd-4167-a6dc-9349b91cbb97" class="numbered-list" start="1"><li><strong>Application Startup</strong>: Spring Boot initializes the application context when the application starts.</li></ol><ol type="1" id="fdb512c9-1c74-4d0f-a630-b9b6e71392ae" class="numbered-list" start="2"><li>Profile Check : It checks for the any specific Profile. If not specified it will run as a “default” profile.</li></ol><ol type="1" id="975f9304-c10a-4781-9288-84e6bb7c76d9" class="numbered-list" start="3"><li><strong>Component Scanning</strong>: Spring scans the classpath for components, such as beans annotated with @Component, @Service, @Repository, or @Controller.</li></ol><ol type="1" id="63944b4a-8441-44b9-abcf-865568dde152" class="numbered-list" start="4"><li><strong>Bean Registration and nitialization</strong>: Spring registers these components as beans in the application context. Also Spring initializes the beans, which involves instantiating them and configuring their properties.</li></ol><ol type="1" id="46fb8c87-07e7-4767-8ea4-5820f98be029" class="numbered-list" start="5"><li><strong>Dependency Injection</strong>: Spring injects dependencies into the beans.</li></ol><ol type="1" id="6e63f2c2-aeb8-4a77-be0b-3df559b69212" class="numbered-list" start="6"><li>Servelet Starts : It starts the server. In our case it starts tomcate server.</li></ol><p id="1a558951-0a24-447c-acea-c270001cba5e" class=""><br/>Lets Understand it using Logs :<br/></p><p id="79a24875-32c3-4f7c-bb6f-ea110427948e" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9cb3bdb6-ff57-4931-9ff4-800760e026e1" class="code"><code class="language-Java">2024-02-06T21:54:48.510+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : Starting WorkManagementApplication using Java 21.0.2 with PID 79387 (/Users/parth.prajapati/IdeaProjects/WorkManagement/build/cla...
+2024-02-06T21:54:48.511+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-02-06T21:54:48.900+05:30  INFO 79387 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-02-06T21:54:48.913+05:30  INFO 79387 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 MongoDB repository interfaces.
+2024-02-06T21:54:49.178+05:30  INFO 79387 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-02-06T21:54:49.188+05:30  INFO 79387 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-06T21:54:49.188+05:30  INFO 79387 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-06T21:54:49.224+05:30  INFO 79387 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-06T21:54:49.225+05:30  INFO 79387 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 672 ms
+2024-02-06T21:54:50.412+05:30  INFO 79387 --- [           main] org.mongodb.driver.client                : MongoClient with metadata {&quot;driver&quot;: {&quot;name&quot;: &quot;mongo-java-driver|sync|spring-boot&quot;, &quot;version&quot;: &quot;4.11.1&quot;}, &quot;os&quot;: {&quot;type&quot;: &quot;Darwin&quot;, ...
+2024-02-06T21:54:50.449+05:30  INFO 79387 --- [ehw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-howif0x-shard-00-01.j5u0ehw.mongodb.net:27017 to client view of cluster
+2024-02-06T21:54:50.467+05:30  INFO 79387 --- [ehw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-howif0x-shard-00-02.j5u0ehw.mongodb.net:27017 to client view of cluster
+2024-02-06T21:54:50.470+05:30  INFO 79387 --- [ehw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-howif0x-shard-00-00.j5u0ehw.mongodb.net:27017 to client view of cluster
+BeanA constructor called !!!
+BeanB constructor called !!!
+Setting property beanA of BeanB instance
+2024-02-06T21:54:50.793+05:30  INFO 79387 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path &#x27;&#x27;
+2024-02-06T21:54:50.799+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : Started WorkManagementApplication in 2.528 seconds (process running for 3.054)
+2024-02-06T21:54:50.898+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-howif0x-shard-00-00.j5u0ehw.mongodb.net...
+2024-02-06T21:54:50.898+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-howif0x-shard-00-01.j5u0ehw.mongodb.net...
+2024-02-06T21:54:50.898+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-howif0x-shard-00-02.j5u0ehw.mongodb.net...
+2024-02-06T21:54:50.902+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Discovered replica set primary ac-howif0x-shard-00-01.j5u0ehw.mongodb.net:27017 with max election id 7fffffff0000000000000006 and max set version 1</code></pre><p id="7063a8f8-4706-4ba9-b033-37e44a870282" class="">
+</p><ol type="1" id="a8e015b4-cf48-4057-9791-56634141211e" class="numbered-list" start="1"><li><strong>Application Startup</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0e7d0bcf-469a-4a3e-9bd1-ec99153e36d7" class="code"><code class="language-Java">2024-02-06T21:54:48.510+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : Starting WorkManagementApplication using Java 21.0.2 with PID 79387 (/Users/parth.prajapati/IdeaProjects/WorkManagement/build/cla...</code></pre></li></ol><ol type="1" id="7766e3f6-edac-4e6f-8f0e-cfab33c301ee" class="numbered-list" start="2"><li>Profile Check<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a11d5115-dd6a-4d76-a5b0-3c294feb87f3" class="code"><code class="language-Java">2024-02-06T21:54:48.511+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : No active profile set, falling back to 1 default profile: &quot;default&quot;</code></pre></li></ol><ol type="1" id="f43ef989-8026-4acb-84fc-9cca8aed6c84" class="numbered-list" start="3"><li>Component Scanning:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1dd9d5dc-8c0f-48a0-ae0f-ca86826f618a" class="code"><code class="language-Java">2024-02-06T21:54:48.913+05:30  INFO 79387 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 MongoDB repository interfaces.</code></pre><p id="bf542fac-10be-4489-bf8d-249f9bbd406b" class="">Other component (i.e. Controller, Service ,..) scanning does not have logs.</p></li></ol><ol type="1" id="1f8239bd-2892-49af-bdbe-4a9821444cd2" class="numbered-list" start="4"><li><strong>Bean Registration and Initialization</strong></li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1bc3c236-b675-452d-b7ad-98c0ff10e48b" class="code"><code class="language-Java">BeanA constructor called !!!
+BeanB constructor called !!!</code></pre><p id="fde0aae7-e30b-4b61-9061-06cb52b4c872" class="">Here Bean for class BeanA and BeanB is created.</p><p id="d76cf7db-39c3-4df0-bbff-ea058126aab7" class="">
+</p><ol type="1" id="b9212fe0-2715-4b7d-ab33-c3d977d422c2" class="numbered-list" start="5"><li>Dependency Injection :<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ac39d0a4-6f1c-4764-89b1-3656178bf86e" class="code"><code class="language-Java">Setting property beanA of BeanB instance</code></pre><p id="8964c94d-7662-404a-ab2d-7e5fba41d5fa" class="">BeanB class calles dependency of class BeanA.</p><p id="f9e8f751-50c5-4752-8924-7b08203270b4" class="">
+</p></li></ol><ol type="1" id="e8db2de6-c504-44f9-a024-c553fbb5489d" class="numbered-list" start="6"><li>Starts Tomcate Server <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="65b7a36a-0f05-46cb-8f97-cb83fe0a85ab" class="code"><code class="language-Java">2024-02-06T21:54:50.793+05:30  INFO 79387 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path &#x27;&#x27;</code></pre><p id="f969adc7-3ac8-4f96-9f52-36ce0d6842b1" class="">
+</p><p id="1acc96f6-f69d-47dd-a947-8df84f3821fa" class="">
+</p></li></ol><h2 id="9ab4d0ea-456b-4cbc-9538-bc95ee906c1b" class="">Que : 2</h2><h3 id="54d05f09-3798-4f8e-8db0-085461cce546" class="">In code, you will see SpringLoadTest what does it do ?</h3><p id="39efae42-943a-4398-8fb8-7885d661e0fc" class="">
+</p><p id="5d823647-218f-4adb-bb0b-e6988ab57471" class="">First it Starts Spring configuration using FasterApplicationContext and Security context. Counts the time taken to Initialize it. </p><p id="7a10980b-1f4c-4b77-bc35-30748fe6b1e2" class="">It loggs the time taken for initialization in error log.</p><p id="05f71b2f-4a04-4876-9fc4-5cc50816072f" class="">
+</p><h2 id="f1bd4e20-3b04-41cc-a5f5-eaf74956f322" class="">Que : 3</h2><h3 id="f1161c1b-0831-4efe-b57e-977d41f6c377" class="">What is the difference between Auto-wiring a Service or getting it from ApplicationContext using SpringLocatorFactory?</h3><p id="8ea2dbba-0e7f-4306-8298-1394882dc814" class="">
+</p><ol type="1" id="9a90810c-3267-4843-9495-701401a0329e" class="numbered-list" start="1"><li><strong>Auto-wiring a Service</strong>:<ul id="c5b2634e-f5fe-4a35-990b-c315e733487d" class="bulleted-list"><li style="list-style-type:disc">Auto-wiring is a mechanism provided by Spring for automatic dependency injection.</li></ul><ul id="b11639be-d3d0-46ad-9255-a700c1cd3510" class="bulleted-list"><li style="list-style-type:disc">When you auto-wire a service, Spring automatically injects an instance of the service into the dependent component (such as a controller, another service, or a bean) based on the specified injection type (e.g., constructor injection, setter injection, or field injection) and the matching bean definition in the application context.</li></ul><ul id="93a997d9-8af8-47cb-b24c-87c5d362a5a9" class="bulleted-list"><li style="list-style-type:disc">Auto-wiring is convenient and commonly used, as it reduces the need for explicit configuration and manual instantiation of dependencies.</li></ul><p id="749f98f9-d859-4466-975b-1f348a57b440" class="">
+</p></li></ol><ol type="1" id="4d63ebd7-f53c-4681-831b-a8497ac70fab" class="numbered-list" start="2"><li><strong>Getting it from ApplicationContext using SpringLocatorFactory</strong>:<p id="7429444a-2d37-45ff-b937-9a34a6a51e22" class="">
+</p><ul id="13d07f11-07db-4846-925e-3bf7d8b84224" class="bulleted-list"><li style="list-style-type:disc">Using SpringLocatorFactory, We can typically obtain a reference to the ApplicationContext and then retrieve the desired bean by its name or type.</li></ul><ul id="1e24cc62-b353-4e3d-beca-bab8675fc228" class="bulleted-list"><li style="list-style-type:disc">This approach gives more control over the bean retrieval process.</li></ul><ul id="74b0815a-6078-467d-9ad1-39cccb2dc386" class="bulleted-list"><li style="list-style-type:disc">However, it may introduce tighter coupling between components and may not follow the recommended dependency injection principles advocated by Spring.</li></ul></li></ol><p id="0760441a-451f-4dcc-b4ed-43d1596e1af1" class="">
+</p><p id="5fd8d806-dc80-4d20-b03e-281f4fdc133f" class="">
+</p><h2 id="ace5e291-4e44-46f9-bbc7-e4bc9ca934f0" class="">Que : 4</h2><h3 id="65e7e351-d1be-4c1f-8297-6229b309b820" class="">Diff between Auto-wiring using a constructor or separately as a variable ?</h3><p id="6a00d767-7428-42d9-8402-d2447435e4bd" class="">
+</p><p id="f61abbe2-840e-4ad0-8258-d63211961640" class=""><strong>Constructor Injection</strong></p><ul id="a23bc693-299f-44aa-ae0d-569d718b1378" class="bulleted-list"><li style="list-style-type:disc">In constructor injection, dependencies are injected through the constructor of a class.</li></ul><ul id="c7c31db1-1526-4988-88aa-0f888d1f312e" class="bulleted-list"><li style="list-style-type:disc">Constructor injection is considered a best practice in Spring because it ensures that all required dependencies are provided when an instance of the class is created. This makes the dependencies explicit and immutable once set.</li></ul><ul id="ba30c1ba-39cb-42b4-abcb-7d31c8307758" class="bulleted-list"><li style="list-style-type:disc">Constructor injection promotes better testability, as dependencies can be easily mocked or stubbed during unit testing.</li></ul><ul id="2e9d3f40-28ab-49f6-9e09-d2ad30fac8e2" class="bulleted-list"><li style="list-style-type:disc">Constructor injection also helps in enforcing immutability and promoting thread safety.</li></ul><p id="fe59a591-c444-4670-ab00-57413e66ec15" class="">
+</p><p id="7d16ba24-f3e3-4af6-aa07-650206c59ec6" class=""><strong>Field (Variable) Injection</strong></p><ul id="3b3799dd-1be6-44c7-8508-77dc51c33297" class="bulleted-list"><li style="list-style-type:disc">In field injection, dependencies are injected directly into class fields using  @Autowired annotations.</li></ul><ul id="2d29e04e-f1db-46a6-ae42-92aeeea11610" class="bulleted-list"><li style="list-style-type:disc">However, field injection can lead to hidden dependencies and can make the code harder to understand, as dependencies are not explicitly declared in the constructor.</li></ul><ul id="7cc43f2a-5864-4fe2-8cc4-297fed4b051d" class="bulleted-list"><li style="list-style-type:disc">Field injection can also make unit testing more challenging, as it may require the use of  frameworks like Mockito to mock dependencies.</li></ul><p id="bc80709d-294d-4362-996b-22e7b17ae0f1" class="">
+</p><h2 id="968ec457-7793-45ad-990f-08c4b8051c14" class="">Que : 5</h2><h3 id="68f61d0b-eb77-47df-86d7-fdac230589ec" class="">When a micro-service is being deployed on a server, at what time spring initialisation starts ?</h3><p id="49e68127-e391-48c7-a523-5b0e44a51f16" class="">When the server starts up or when the microservice application is deployed to it, the server runtime environment begins initialization.</p><p id="f62f8d11-b2bd-44a9-aa0d-f3dfc1a760cc" class="">The Spring Boot framework kicks in during server startup. Spring Boot auto-configures various components and starts the Spring application context.</p><p id="0693c31a-d2e2-4dd1-9235-3e15621fafdf" class="">
+</p><h2 id="2e7fa7e8-69a5-47f9-8e6d-85dacd09e1b7" class="">Que : 6</h2><h3 id="a492cee5-9f88-4933-81c2-7bc7f79f98e1" class="">How to check cyclic dependency ?</h3><p id="5ad61978-9768-44e3-a96c-783181875b48" class="">
+</p><ol type="1" id="4ef7c11f-ff09-42de-a49a-a6e152b12373" class="numbered-list" start="1"><li>Manual Inspection :<ul id="0cf6ac28-26b7-4278-8ae4-b5b9d8261305" class="bulleted-list"><li style="list-style-type:disc">We can check each Bean manualy and can find dependency present or not. </li></ul><ul id="191ec6cf-a058-466e-819e-e0a4a465f310" class="bulleted-list"><li style="list-style-type:disc">It is very time consuming and it becomes hazard if the project is too complicated.</li></ul></li></ol><ol type="1" id="f771a471-8b38-49f4-b50a-12a72ffeabce" class="numbered-list" start="2"><li>Visual Inspection Tools:<ul id="7b9e92cc-0e55-48c0-a9b1-3ad4ab1444b2" class="bulleted-list"><li style="list-style-type:disc">We can use IDE plugins or tools like Spring Tool Suite (STS) or IntelliJ IDEA to visualize the dependency graph of your Spring application context.</li></ul><ul id="2e90aae9-8e08-496b-aeab-3a0cb0ae3e8c" class="bulleted-list"><li style="list-style-type:disc">These tools can generate dependency diagrams that help visualize the relationships between beans and detect cyclic dependencies.<p id="d03ee552-55c4-4ce3-87e6-ddb893a85503" class="">Ex: </p><figure id="9a1f4ddd-cfa6-44bb-afec-08daad2e57ef" class="image"><a href="Spring%20Que%20-%20Ans%208a5da64c72d94714a11eb79e15eb80cc/Untitled.png"><img style="width:1900px" src="Spring%20Que%20-%20Ans%208a5da64c72d94714a11eb79e15eb80cc/Untitled.png"/></a></figure><p id="57bee3ae-43e8-4294-afbb-9b6f611c03b2" class="">
+</p><p id="d7eb74c9-ce2a-47e0-9828-4cb8fa98d0ac" class="">Circular Dependency Detected: </p><figure id="b31c0605-f380-464c-95bf-9beecec0b87e" class="image"><a href="Spring%20Que%20-%20Ans%208a5da64c72d94714a11eb79e15eb80cc/Untitled%201.png"><img style="width:1822px" src="Spring%20Que%20-%20Ans%208a5da64c72d94714a11eb79e15eb80cc/Untitled%201.png"/></a></figure><p id="7b522ed8-e593-4216-952b-80c51239160b" class="">
+</p></li></ul></li></ol><ol type="1" id="0f2434fe-e78e-4ad5-bda4-876179c292cc" class="numbered-list" start="3"><li>Unit Testing:<ul id="e0ee43f9-18f4-4cc3-837d-50d161f2747a" class="bulleted-list"><li style="list-style-type:disc">We can write unit tests that instantiate the Spring application context and verify that beans can be successfully initialized without encountering cyclic dependencies.</li></ul></li></ol><ol type="1" id="f3f1bfc6-8956-4d6c-b487-f236b349719f" class="numbered-list" start="4"><li>Runtime Analysis:<ul id="5d45993f-0ab6-4992-8cbe-c73a7ba15b6e" class="bulleted-list"><li style="list-style-type:disc">Enable debug logging for the Spring framework and observe the log messages during application startup</li></ul><ul id="b7fbc406-73cb-4221-bb37-34556acd975b" class="bulleted-list"><li style="list-style-type:disc">It will show the error if it finds the circular dependency.</li></ul><p id="a09e4841-2082-4dd1-abd7-862e730b3ea5" class="">
+</p></li></ol><p id="13aee6d5-4459-43ef-aee6-26d6c85b83e9" class="">
+</p><h2 id="9ab67541-3b81-49be-a14e-313afe00a677" class="">Que : 7</h2><h3 id="27b00519-7aa7-4e74-8322-2e114f7439ec" class="">How to deal with Cyclic dependency ?</h3><ol type="1" id="6ba3787a-86de-4e79-a9df-23f282b6201d" class="numbered-list" start="1"><li>@Lazy method :<ul id="9039a3aa-a58c-4c3f-bc20-51dd581d1deb" class="bulleted-list"><li style="list-style-type:disc">By default, Spring creates all singleton beans eagerly at the startup/bootstrapping of the application context.</li></ul><p id="1550e4e3-dd15-4e8e-b144-01412bb89846" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="16bcaf84-393d-4301-8dd2-908005b2617c" class="code"><code class="language-Java">public class A {
+    private B b;
+
+    @Autowired
+    public A(@Lazy B b) {
+        this.b = b;
+    }
+}</code></pre><p id="5d52cd9b-2134-4c8a-ae1a-4d86faed7599" class="">
+</p><ul id="73ac4a15-0507-43b9-ac86-819b3986f75b" class="bulleted-list"><li style="list-style-type:disc">when Spring creates the application context, it will create a proxy for the B bean instead of creating the actual bean instance immediately. When the B bean is needed (e.g., when injecting it into A), Spring will initialize the B bean and inject it into A. This breaks the circular dependency because A does not need to be initialized when creating B.</li></ul></li></ol><p id="c3c62640-0964-48f0-bdd5-6761fff4dbaf" class="">
+</p><ol type="1" id="7395eebc-9a43-4a43-be18-453ca5acb173" class="numbered-list" start="2"><li>Using @PostConstruct<ul id="98243c81-f64e-4154-a7a2-374fa7800e0c" class="bulleted-list"><li style="list-style-type:disc">Another way to break the cycle is by injecting a dependency using <em>@Autowired</em> on one of the beans and then using a method annotated with <em>@PostConstruct</em> to set the other dependency.</li></ul><p id="583cf595-a403-4c6d-9c16-e75df0e9e13c" class="">Example :<br/><br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="52f2ee70-0586-47d2-b38e-2d2bdb47feb1" class="code"><code class="language-Java">public class BeanB {
+
+    BeanB() {
+        System.out.println(&quot;BeanB constructor called !!!&quot;);
+    }
+
+    private BeanA beanA;
+    
+    @PostConstruct
+    public void init(){
+        beanA.setBeanB(this);
+    }
+
+    @Autowired
+    public void setBeanA(BeanA beanA) {
+        System.out.println(&quot;Setting property beanA of BeanB instance&quot;);
+        this.beanA = beanA;
+    }
+}</code></pre></li></ol><p id="32797b16-9e0b-4532-b493-62827adca929" class="">And don’t inject dependency using @Autowired in other class. Keep it plain as below.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="895cc030-028d-4c77-8f13-6ce4169eb65b" class="code"><code class="language-Java">@Component
+public class BeanA {
+
+    BeanA() {
+        System.out.println(&quot;BeanA constructor called !!!&quot;);
+    }
+
+    private BeanB beanB;
+
+    public void setBeanB(BeanB beanB) {
+        System.out.println(&quot;Setting property beanB of BeanA instance&quot;);
+        this.beanB = beanB;
+    }
+}</code></pre><p id="7b58283f-3108-4604-b039-f434a9558462" class="">
+</p><h2 id="d1a8ffce-4b50-4d57-9f27-a978b2961c39" class="">Que : 8</h2><h3 id="56416f25-4658-4a28-995e-c175f78596ed" class="">Is getting a cyclic dependency at first place is a precedent for wrong design or there can be a valid use case for this ?</h3><ul id="ab4ed45a-0fd3-42d1-8e1b-36f3d53ed51a" class="bulleted-list"><li style="list-style-type:disc">When we have a circular dependency, it’s likely we have a design problem and that the responsibilities are not well separated. It is not following the “Single Responsibility Principle”.</li></ul><ul id="d2154afe-9337-41ab-9ba9-12e1b7699c61" class="bulleted-list"><li style="list-style-type:disc">We should try to redesign the components properly so that their hierarchy is well designed and there is no need for circular dependencies.</li></ul><ul id="2fd0ee5b-e084-4629-bf7f-e5f3f66a2f06" class="bulleted-list"><li style="list-style-type:disc">However, there are many possible reasons we may not be able to do a redesign, such as legacy code, code that has already been tested and cannot be modified, not enough time or resources for a complete redesign, etc.</li></ul><ul id="c29e6541-3f77-490e-80b1-7a80106aabce" class="bulleted-list"><li style="list-style-type:disc">So in nutshell, Having a circular dependencies shows it is a bad design.</li></ul><p id="511c3551-e1b2-4033-abe9-bcecb96e31c3" class="">
+</p><h2 id="92666516-99e1-4b61-a808-2bfd36c43fb5" class="">Que : 9</h2><h3 id="3dbeaf61-8978-4490-999d-38fd053e6a32" class="">what happens if an interface has an implementation and if you try to Autowire that implmentation in the constructor without Qualifier ?</h3><p id="a039db1d-f544-4d83-9853-e1c247f9000a" class="">
+</p><p id="b557fcdb-8885-4b8d-bc73-e1c5d0c6a0d9" class="">There are Two cases:</p><ol type="1" id="f26f15a0-d50a-4672-a4f2-3c4b275251d7" class="numbered-list" start="1"><li>Only one implementation of that class is present:<ul id="f25e7906-ec1b-48c2-af1b-1315f0de64ed" class="bulleted-list"><li style="list-style-type:disc">In such case it will create a bean of that implementation class automatically.</li></ul></li></ol><ol type="1" id="01060a60-c8a3-41b2-a4e1-a5b98546b73a" class="numbered-list" start="2"><li>More than one implementation class is present :<ul id="66a392bc-b19f-4198-bdc7-f57f8536574b" class="bulleted-list"><li style="list-style-type:disc">In such case it will throw an error saying more than one implementation is present for creating the bean.</li></ul><ul id="b5f4601f-189b-418e-9854-c174348b90b6" class="bulleted-list"><li style="list-style-type:disc">In such cases we can use Qualifier to specify which implementaion to use. </li></ul><ul id="2c1023d9-c2e5-4858-8047-365f9d8b8f9f" class="bulleted-list"><li style="list-style-type:disc">Or we can put @Primary above one of the implementation class to tell that if more than one implementation is present use this class to create a bean.</li></ul></li></ol><p id="58d5db13-bdc6-49d0-ba23-d132c05cab27" class="">
+</p><p id="af698ba2-b3b9-45d6-9aa7-34f051cfd0a4" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
