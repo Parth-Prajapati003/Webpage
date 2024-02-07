@@ -1,0 +1,790 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Spring Core</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="cd96a1d0-2713-4f04-9559-4b7bce7cccb7" class="page sans"><header><h1 class="page-title">Spring Core</h1><p class="page-description"></p></header><div class="page-body"><p id="1ba02bf8-ff61-4aaa-9281-665d159a0da7" class="">
+</p><p id="233c48cf-4b61-434e-a25f-043f1a0c4b21" class="">Spring Containers:</p><p id="fbcf3d43-2b6b-438f-b171-962150148c69" class="">Spring IoC (Inversion of Control) Container is the core of <a href="https://www.geeksforgeeks.org/introduction-to-spring-framework/"><strong>Spring Framework</strong></a>. It creates the objects, configures and assembles their dependencies, manages their entire life cycle.</p><p id="7fb4bd34-0384-4578-9519-7007fd33ffa1" class="">
+</p><p id="d57d1951-1d9a-4d6b-9b2e-00819208e38c" class=""><strong>There are 2 types of IoC containers:</strong></p><ul id="a02f8fe6-29cb-4a57-9c94-d1e82d280f4b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.geeksforgeeks.org/spring-beanfactory/"><strong>BeanFactory</strong></a></li></ul><ul id="9f4d716c-55ef-4aee-ad6c-2969983be98d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.geeksforgeeks.org/spring-applicationcontext/"><strong>ApplicationContext</strong></a></li></ul><p id="42065fce-fd25-46f3-b2b6-62bd28ebb092" class="">
+</p><p id="02c2a606-9364-41a2-8ac1-52df1d06cc27" class="">The BeanFactory is the most basic version of IoC containers, and the ApplicationContext extends the features of BeanFactory.</p><p id="7e9b537f-bb71-45fe-9334-b7d79483092e" class="">
+</p><figure id="19dce7a1-6bc1-4deb-9a5d-982afcbef821" class="image"><a href="Spring%20Core%20cd96a1d027134f0495594b7bce7cccb7/Untitled.png"><img style="width:528px" src="Spring%20Core%20cd96a1d027134f0495594b7bce7cccb7/Untitled.png"/></a></figure><p id="a80dc72a-db2b-4d8b-8b34-a106f95d96c2" class="">
+</p><p id="deeba76e-e71a-4683-94e0-e2db4ef2b74e" class=""><em>because of additional features, developers prefer to use ApplicationContext over BeanFactory.  </em></p><p id="04976c50-4632-41fd-9877-468770fffd33" class="">
+</p><p id="06b79724-f038-4ae6-90a6-7984013511b3" class="">For example : <br/>Autowire in BeanFactory : <br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="193d7f13-a831-4482-84e2-3e2c7b6f7896" class="code"><code class="language-Java"> &lt;bean id=&quot;welcomeBean&quot; class=&quot;com.geeks.beans.WelcomeBean&quot; autowire=&quot;byName&quot;/&gt;</code></pre><p id="3f462b02-82e2-4e9d-a0dc-02e2b9bdec23" class="">
+</p><p id="e15ac837-f207-451c-91db-347719b2f1fe" class="">Auto wire in Application context :  </p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="045dd414-cc47-4c70-a6bb-694162261b11" class="code"><code class="language-Java">@Autowired
+private String name;</code></pre><p id="a68ba102-75f2-4dd0-8557-3519df7304d6" class="">
+</p><p id="934c9565-7065-49b0-af67-4aa003d8e9ef" class=""><em><strong>Spring – BeanFactory </strong></em></p><p id="5308856f-905d-4009-bc92-3d8a5e0699b6" class=""><em>It provides basic functionalities and is recommended for use for lightweight applications like mobile and applets.</em></p><p id="0d90ec91-68d5-4899-bf93-7eb5cba041fb" class="">This is the root interface for accessing a Spring bean container.</p><p id="257f12f8-5f85-4817-b374-0081cd470a1f" class="">The common implementation class used for this BeanFactory is <strong>XmlBeanFactory.</strong></p><p id="ba38beb4-8fde-42a4-9e22-ec2b4ce9b28e" class="">
+</p><p id="6a7a950f-28db-4a5e-bb17-d8fae518f9f8" class="">Types of ApplicationContext Containers : </p><p id="4350ff0c-4a14-492c-b660-694f5817c686" class="">
+</p><ol type="1" id="ae72a435-c01a-4704-a482-0541ebd7b4a7" class="numbered-list" start="1"><li>AnnotationConfigApplicationContext container<ul id="0ead4685-811e-4431-9530-66ac0973a96e" class="bulleted-list"><li style="list-style-type:disc">The constructor of AnnotationConfigApplicationContext accepts one or more classes.</li></ul><ul id="34f826f5-9d21-495a-abfa-7771ee127ddc" class="bulleted-list"><li style="list-style-type:disc">The beans defined in later classes will override the same type and name beans in earlier classes</li></ul></li></ol><ol type="1" id="101f6147-c979-4e8b-847b-0b3bfecf326a" class="numbered-list" start="2"><li>AnnotationConfigWebApplicationContext</li></ol><ol type="1" id="c8c2a90a-0463-4978-9337-a67a6a3c92d0" class="numbered-list" start="3"><li>XmlWebApplicationContext<ul id="76027efb-b0e3-4f26-92f2-c54f9f8d5d38" class="bulleted-list"><li style="list-style-type:disc">we can configure it in web.xml</li></ul></li></ol><ol type="1" id="3d001745-3553-43e2-8a52-b4b6f5db07cb" class="numbered-list" start="4"><li>FileSystemXmlApplicationContext<ul id="7712867d-5a0a-42de-a445-b5e7a1b8afed" class="bulleted-list"><li style="list-style-type:disc">It is used to load XML-based Spring Configuration files from the file system or from URL.</li></ul></li></ol><ol type="1" id="3a277c71-40cc-4cd6-96e6-3cb6556f4277" class="numbered-list" start="5"><li>ClassPathXmlApplicationContext<ul id="167ec633-f663-4f10-8abe-7d10ccd05ffc" class="bulleted-list"><li style="list-style-type:disc">It is used to load XML-based Spring Configuration files from the classpath.</li></ul></li></ol><p id="e97df7a6-4aa5-481b-8c1c-870483f03132" class="">
+</p><p id="c223adca-2964-4bfa-b1a3-1bcedb8073d6" class="">
+</p><figure id="85f39f47-9449-4553-b501-9b8d3ae7eb25" class="image"><a href="Spring%20Core%20cd96a1d027134f0495594b7bce7cccb7/Untitled%201.png"><img style="width:768px" src="Spring%20Core%20cd96a1d027134f0495594b7bce7cccb7/Untitled%201.png"/></a></figure><p id="12d5eb29-f622-4fe5-9fae-0d00734e7e3a" class="">
+</p><p id="2437ac0c-f667-4117-bdb4-f3811e5f311f" class="">
+</p><h1 id="e48e631c-8a48-4db8-a355-f6be0b2b29f9" class=""><strong>Dependency Injection:</strong></h1><p id="ce4a8483-91e3-45f4-be11-fcd89f5a9de9" class=""><strong>DI-Related Annotations:</strong></p><p id="6d52c7eb-570d-4d91-8256-d057910f14b7" class="">
+</p><ol type="1" id="f1a25be9-5bcb-47ee-bd4d-b19f8b498289" class="numbered-list" start="1"><li>@Autowired<ul id="f544f717-d353-44d2-a4bd-52d998e9925a" class="bulleted-list"><li style="list-style-type:disc">@Autowired annotation is applied to the <strong>fields, setter methods, and constructors</strong>. It injects object dependency implicitly.</li></ul><ul id="d2c5e9c9-8e19-4db3-b1bf-98a63f3669b9" class="bulleted-list"><li style="list-style-type:disc">Field injection</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11225b45-51e3-432e-8009-d432f9856ec6" class="code"><code class="language-Java">class Student { 
+	@Autowired
+	Address address; 
+}</code></pre><hr id="b0cd921b-41f9-441f-b822-c3ea39614fe6"/><ul id="41898b4a-455d-428e-935a-553e2070385c" class="bulleted-list"><li style="list-style-type:disc">Constructor Injection</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a556775b-ab4e-43bd-b418-b5ffc7a2b403" class="code"><code class="language-Java">class Student { 
+    Address address; 
+  
+    @Autowired
+    Student(Address address) { 
+        this.address = address; 
+    } 
+}</code></pre><ul id="2f7fd835-e971-4c36-939d-9a2fe339eec2" class="bulleted-list"><li style="list-style-type:disc">Setter Injection</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a0ea55fe-89b4-4b91-99b9-03a209a912ab" class="code"><code class="language-Java">class Student { 
+    Address address; 
+  
+    @Autowired
+    void setaddress(Address address) { 
+        this.address = address; 
+    } 
+}</code></pre><p id="e71f68f5-7db2-444d-a77e-0c0c39f17f03" class="">
+</p></li></ol><ol type="1" id="49a5ce1f-9511-42b4-b6f1-5a9869ab8951" class="numbered-list" start="2"><li>@Qualifier Annotation<ul id="acc5c782-f30e-40d4-87cb-4b9f5d1091d2" class="bulleted-list"><li style="list-style-type:disc">The @Qualifier annotation is used to resolve the autowiring conflict when there are multiple beans of the same type. </li></ul><ul id="2ab298cc-d88b-40ad-baa2-4d91aad8fd91" class="bulleted-list"><li style="list-style-type:disc">The @Qualifier annotation can be used on any class annotated with @Component or on methods annotated with @Bean. </li></ul><p id="96749410-acb9-4346-8f04-f326a14effb0" class="">Example :<br/><br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="71c9f457-1b85-40de-a0f8-a90d8110a308" class="code"><code class="language-Java"> @Component(value=&quot;car&quot;) 
+public class Car implements Vehicle { 
+
+	@Override
+	public void start() { 
+		System.out.println(&quot;Car started&quot;); 
+	} 
+
+} 
+
+@Component(value=&quot;bike&quot;) 
+public class Bike implements Vehicle { 
+
+	@Override
+	public void start() { 
+		System.out.println(&quot;Bike started&quot;); 
+	} 
+
+}</code></pre><p id="3dd9e862-1c79-4053-b5c8-f822831dadea" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d5b4fbc2-7f00-4f50-ac15-b8807570034e" class="code"><code class="language-Java">@Component
+public class VehicleService { 
+
+	@Autowired
+	@Qualifier(&quot;bike&quot;) 
+	private Vehicle vehicle; 
+
+	public void service() { 
+		vehicle.start(); 
+	} 
+}</code></pre><p id="0468bdff-6572-4486-b3bc-b95905a8d954" class="">
+</p><p id="7295cc69-1022-4b38-b66b-9b439eb6feaa" class="">Vehicle is an interface which has two implements so to specify which one to create as a bean we have to use @Quealifier to specify it.</p><p id="49d1a107-e7c6-497e-a5f6-72a022da01bf" class="">
+</p></li></ol><ol type="1" id="c80f4f27-faea-4759-b19f-04e84126bd78" class="numbered-list" start="3"><li><strong><strong>@Primary Annotation</strong></strong><ul id="c8eca6dd-4c87-4181-b143-8af75da30e2d" class="bulleted-list"><li style="list-style-type:disc">It also used to solve same issue as above</li></ul><ul id="10cc7dea-1a6c-4425-b8e3-bf2734444502" class="bulleted-list"><li style="list-style-type:disc">This indicates that a particular bean should be given preference when multiple beans are candidates to be autowired</li></ul><p id="a46520b6-2c66-4b26-8dc5-324620260c5e" class="">
+</p><p id="0c721e29-8ca4-4978-9ce0-199234f28fbc" class="">
+</p></li></ol><p id="18bb062d-ad0d-4b0d-bb20-17a09c874d92" class=""><strong>Stereotype Annotations:</strong></p><p id="593aa064-8450-44d0-ad15-3a2efb5559fa" class="">
+</p><p id="2858c29f-826a-4135-b0d5-b3a5f013cb0f" class="">@Component annotation is the main Stereotype Annotation. There are some Stereotype meta-annotations which is derived from <em>@Component</em> those are</p><ol type="1" id="b4f9a4c9-c1a2-429a-a409-5bd2d7cb79e1" class="numbered-list" start="1"><li><em>@Service</em></li></ol><ol type="1" id="474aed36-3d00-4cb3-bbce-eb870bfa83b3" class="numbered-list" start="2"><li><em>@Repository</em></li></ol><ol type="1" id="132f2d1c-62de-48d0-84e8-55d3fabee7e2" class="numbered-list" start="3"><li><em>@Controller</em></li></ol><p id="68c9b0bb-9cfb-4744-bdd3-64ec2a17ef9b" class="">Note : If there is only one constructor and class is defined as @Service or @Component then it will implicite defines the DI. (We can skip to write @Autowired)           {After Spring 4}</p><p id="576f0e47-8df4-4e30-a990-f43f99a5f162" class="">
+</p><p id="954ac695-25c6-4646-b252-d34d9d181123" class="">
+</p><p id="ce83bb21-76db-4415-bef5-7790a1bfaa0e" class="">
+</p><p id="43cacbff-8934-4ad0-a6ee-eb5957ba3e1a" class="">
+</p><p id="f1205a03-713f-4913-9a8d-1de7ec4d9f97" class="">BEAN LIFE CYCLE :<div class="indented"><ul id="caed6a4d-d55e-4eeb-85c8-ad1e465ee081" class="bulleted-list"><li style="list-style-type:disc">If we want to execute some code on the bean instantiation and just after closing the spring container, then we can write that code inside the custom <strong>init()</strong> method and the <strong>destroy()</strong> method.</li></ul><figure id="1010bdc8-c620-4447-9914-fe9cf6945661" class="image"><a href="Spring%20Core%20cd96a1d027134f0495594b7bce7cccb7/Untitled%202.png"><img style="width:1500px" src="Spring%20Core%20cd96a1d027134f0495594b7bce7cccb7/Untitled%202.png"/></a></figure><p id="03492c65-34fc-4ed1-a200-10b04b89d44b" class="">
+</p><p id="a47ffffa-d58a-4b1f-b7a9-80a0ae4a6e22" class="">For implementing the custome init() and Destroy();</p><p id="46945ed4-37e5-4813-bacc-d7b2f7dbe927" class="">Using annotations :</p><ul id="2462cb27-ac88-465a-9136-a4b7578112d3" class="bulleted-list"><li style="list-style-type:disc">we need to annotate the custom init() method with @PostConstruct and destroy() method with @PreDestroy.</li></ul><ul id="d627340a-a72b-408d-9db4-971b01bef4a0" class="bulleted-list"><li style="list-style-type:disc"><em>When we annotate a Spring Bean method with PreDestroy annotation, it gets called when the bean instance is getting removed from the context. </em></li></ul><ul id="bdf9db37-2e0c-4302-b0ec-478728719fb9" class="bulleted-list"><li style="list-style-type:disc"><em>If your spring bean scope is “prototype” then it’s not completely managed by the spring container and the PreDestroy method won’t get called. </em></li></ul><p id="9ab9f8f1-2741-458c-9096-8497dc0dd02c" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a1260199-36e4-484e-8031-7ef5de00d039" class="code"><code class="language-Java">@PostConstruct
+    public void init() throws Exception
+    {
+      // code
+    }
+
+    @PreDestroy
+    public void destroy() throws Exception
+    {
+        //Code
+    }</code></pre><p id="1c236ad0-e355-4265-9390-08c4fb7e29f0" class="">
+</p><p id="de8ef6cd-04e5-45c1-8456-ef7d551878a9" class="">
+</p><h2 id="e2643493-83e9-4fb8-bd0c-75ec9610e5f5" class=""><strong>Singleton and Prototype Bean Scopes in Java Spring</strong></h2><p id="ccac5d23-f0d7-4302-b406-4df08c058369" class="">
+</p><h3 id="f5f6a3f3-9028-4dd9-b51d-9cbb4b3707a0" class="">Singleton Scope:</h3><p id="2b3a109a-dc29-48cb-8f7a-2abe69779f62" class="">If the scope is a singleton, then only one instance of that bean will be instantiated per Spring IoC container and the same instance will be shared for each request</p><p id="ce1464aa-616b-425f-a0ef-7aa1f84d689d" class="">Normally each bean is created as singleton scope.</p><h3 id="5d620930-9c55-4743-981e-dc0b41077295" class="">Prototype Scope:</h3><p id="fc579316-46ce-4e50-89b4-1abc60a3bf00" class="">If the scope is declared <strong>prototype</strong>, then spring IOC container will create a new instance of that bean every time a request is made for that specific bean.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7b3aecf9-6fe9-48d4-99ec-3b6dd0c258a8" class="code"><code class="language-Java">@Scope(&quot;prototype&quot;)
+@Repository
+public class Myclass {
+	   //code
+}</code></pre><p id="e8bd3cc4-5419-4b6c-9ee2-22e489df0f1a" class="">
+</p><p id="e9985a11-d201-470b-9c51-f4b1a25f7a76" class="">
+</p><p id="078ca3aa-16e4-4889-8da4-07a542f0c18c" class="">
+</p><h3 id="ac163597-c412-4816-b44f-04ee10d8ade2" class=""><strong>What is Circular Dependency?</strong></h3><ul id="4200f482-f93b-4b48-9cb6-7062f8af8167" class="bulleted-list"><li style="list-style-type:disc">a circular dependency is a relation between two or more modules that either directly or indirectly depend on each other to function properly</li></ul><p id="85971b39-1665-46a4-8bf5-bd90ad023963" class="">
+</p><p id="f6ecd705-5172-48d4-9412-8fd0f7c1e32d" class="">Ex : <em>Bean A → Bean B → Bean A</em></p><p id="f17a2ad5-b7db-43ff-9b0b-7e5bde84cc2f" class="">
+</p><ul id="87021771-afed-41a5-94d3-29f0e76f9989" class="bulleted-list"><li style="list-style-type:disc">If we try to run it we will get this exception: <p id="a0c8de07-f826-47fd-9a12-2201a3ea9c8b" class="">BeanCurrentlyInCreationException : Error creating bean with name ‘beanA’: Requested bean is currently in creation: Is there an unresolvable circular reference?</p><p id="55fa3324-8809-4d6b-815c-49bbd4ce975f" class="">
+</p><figure id="6fb767a2-1b5a-4cb4-8cd5-e16546e6197a" class="image"><a href="Spring%20Core%20cd96a1d027134f0495594b7bce7cccb7/Untitled%203.png"><img style="width:1336px" src="Spring%20Core%20cd96a1d027134f0495594b7bce7cccb7/Untitled%203.png"/></a></figure></li></ul></div></p><p id="b1126505-349d-436c-93f2-3295fc3b2773" class="">
+</p><p id="c9024727-6df0-4727-b8e9-8262edf16a5f" class="">Solution: <br/><br/></p><ol type="1" id="4ef60fe7-04cd-4644-ac31-3e14f142f729" class="numbered-list" start="1"><li>@Lazy method :<ul id="1d67e765-b4a0-4c46-a502-abbb55444070" class="bulleted-list"><li style="list-style-type:disc">By default, Spring creates all singleton beans eagerly at the startup/bootstrapping of the application context.</li></ul><p id="292c203f-5709-469d-9009-bcce1be4aa6c" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="13d82afd-2614-400f-aa40-c380255e397c" class="code"><code class="language-Java">public class A {
+    private B b;
+
+    @Autowired
+    public A(@Lazy B b) {
+        this.b = b;
+    }
+}</code></pre><p id="832fce2b-e736-40af-8a80-b9f39526fda5" class="">
+</p><ul id="0a682ee4-617c-4185-95af-34188b520854" class="bulleted-list"><li style="list-style-type:disc">when Spring creates the application context, it will create a proxy for the B bean instead of creating the actual bean instance immediately. When the B bean is needed (e.g., when injecting it into A), Spring will initialize the B bean and inject it into A. This breaks the circular dependency because A does not need to be initialized when creating B.</li></ul></li></ol><p id="f714c0b2-eea0-4919-afd5-5f45a5ad126c" class="">
+</p><p id="010ffa4c-660d-4124-82c1-ab5d968da8d1" class="">
+</p><p id="0249df52-c5ae-438d-868a-cf64595ebd79" class="">
+</p><p id="a429ede1-ec29-4dc8-8290-008fd45522b6" class="">
+</p><p id="b540a2e4-df27-437e-8033-cfd01c9040d9" class="">
+</p><p id="3268d156-fcd6-4750-88a4-bc07e669d6f6" class="">
+</p><p id="f33deeee-5f43-4a95-9763-6e5bdb0ad309" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
