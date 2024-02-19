@@ -962,57 +962,7 @@ public class BeanA {
     }
 }</code></pre><p id="7b58283f-3108-4604-b039-f434a9558462" class="">
 
-	<h2>3. Most Popular Workaround: Use Setter/Field Injection</h2>
-    <p>Change the method of Constructor to Setter/Field injection. Constructor Field Injection is done during the time of Application context creation and other types of injections are done as and when required. So, the cyclic dependency issue will not occur here.</p>
-    <h3>Advantages:</h3>
-    <ul>
-        <li>Easy to implement and understand.</li>
-        <li>Flexible, as it allows the object to be constructed without dependencies.</li>
-    </ul>
-    <h3>Disadvantages:</h3>
-    <ul>
-        <li>The object can be in an uninitialized state if the setter method is not called.</li>
-        <li>Not recommended for mandatory dependencies.</li>
-    </ul>
-
-    <h2>4. Use @PostConstruct Annotation</h2>
-    <p>Perform initialization tasks after all necessary injections are done by using the @PostConstruct annotation. This method breaks the cycle by defining the order of creation.</p>
-    <h3>Advantages:</h3>
-    <ul>
-        <li>Ensures all dependencies are injected before use.</li>
-        <li>Good for complex initialization.</li>
-    </ul>
-    <h3>Disadvantages:</h3>
-    <ul>
-        <li>Initialization logic is somewhat hidden, which can affect readability.</li>
-        <li>Not suitable for resolving all types of cyclic dependencies.</li>
-    </ul>
-    <p>Example:</p>
-    <pre>
-        <code>
-@Component
-public class A {
-    private B b;
- 
-    @Autowired
-    public void setB(B b) {
-        this.b = b;
-    }
- 
-    @PostConstruct
-    private void init() {
-        b.someMethod();
-    }
-}
-
-@Component
-public class B {
-    @Autowired
-    private A a;
-}</code>
-    </pre>
-
-    <h2>5. Implement ApplicationContextAware and InitializingBean</h2>
+    <h2>4. Implement ApplicationContextAware and InitializingBean</h2>
     <p>Implement ApplicationContextAware and InitializingBean to allow a bean to interact directly with the Spring container and perform initialization after all beans are set.</p>
     <h3>Advantages:</h3>
     <ul>
