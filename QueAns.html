@@ -24,7 +24,7 @@ body {
 
 body {
 	line-height: 1.5;
-	white-space: pre-wrap;
+	white-space: normal;
 }
 
 a,
@@ -267,6 +267,16 @@ ol > li {
 	margin-left: -1.1em;
 }
 
+pre {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: auto;
+}
+.step {
+    margin-bottom: 20px;
+}
 .selected-value {
 	display: inline-block;
 	padding: 0 0.5em;
@@ -401,7 +411,7 @@ p {
 
 .code,
 code {
-	background: rgba(135, 131, 120, 0.15);
+	/* background: rgba(135, 131, 120, 0.15); */
 	border-radius: 3px;
 	padding: 0.2em 0.4em;
 	border-radius: 3px;
@@ -676,36 +686,118 @@ blockquote {
 </style></head><body><article id="8a5da64c-72d9-4714-a11e-b79e15eb80cc" class="page sans"><header><h1 class="page-title">Spring Que - Ans</h1><p class="page-description"></p></header><div class="page-body"><p id="dcc099d5-36e8-402c-acea-f73257843759" class="">
 </p><p id="6b749568-7b15-4d00-ac85-65c826f32c71" class="">
 </p><p id="b1e7bbcb-cb61-4a82-b60a-ef22304d461f" class=""><strong>Que 1 :</strong></p><h2 id="8a5e03d1-3585-4c76-a3cb-9b913dfdbe92" class=""><strong>What is the process of Spring initialisation ? Complete step by step with demonstration thru logs.</strong></h2><p id="dcdb90c1-79ab-4967-933e-df3039b56e54" class="">Spring Initialization :</p><p id="8a5abf99-b23e-4d6a-95fc-1ae38077ce22" class="">
-</p><ol type="1" id="cfcfa564-09dd-4167-a6dc-9349b91cbb97" class="numbered-list" start="1"><li><strong>Application Startup</strong>: Spring Boot initializes the application context when the application starts.</li></ol><ol type="1" id="fdb512c9-1c74-4d0f-a630-b9b6e71392ae" class="numbered-list" start="2"><li>Profile Check : It checks for the any specific Profile. If not specified it will run as a “default” profile.</li></ol><ol type="1" id="975f9304-c10a-4781-9288-84e6bb7c76d9" class="numbered-list" start="3"><li><strong>Component Scanning</strong>: Spring scans the classpath for components, such as beans annotated with @Component, @Service, @Repository, or @Controller.</li></ol><ol type="1" id="63944b4a-8441-44b9-abcf-865568dde152" class="numbered-list" start="4"><li><strong>Bean Registration and nitialization</strong>: Spring registers these components as beans in the application context. Also Spring initializes the beans, which involves instantiating them and configuring their properties.</li></ol><ol type="1" id="46fb8c87-07e7-4767-8ea4-5820f98be029" class="numbered-list" start="5"><li><strong>Dependency Injection</strong>: Spring injects dependencies into the beans.</li></ol><ol type="1" id="6e63f2c2-aeb8-4a77-be0b-3df559b69212" class="numbered-list" start="6"><li>Servelet Starts : It starts the server. In our case it starts tomcate server.</li></ol><p id="1a558951-0a24-447c-acea-c270001cba5e" class=""><br/>Lets Understand it using Logs :<br/></p><p id="79a24875-32c3-4f7c-bb6f-ea110427948e" class="">
-</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9cb3bdb6-ff57-4931-9ff4-800760e026e1" class="code"><code class="language-Java">2024-02-06T21:54:48.510+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : Starting WorkManagementApplication using Java 21.0.2 with PID 79387 (/Users/parth.prajapati/IdeaProjects/WorkManagement/build/cla...
-2024-02-06T21:54:48.511+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-02-06T21:54:48.900+05:30  INFO 79387 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2024-02-06T21:54:48.913+05:30  INFO 79387 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 MongoDB repository interfaces.
-2024-02-06T21:54:49.178+05:30  INFO 79387 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-02-06T21:54:49.188+05:30  INFO 79387 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-06T21:54:49.188+05:30  INFO 79387 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-06T21:54:49.224+05:30  INFO 79387 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-06T21:54:49.225+05:30  INFO 79387 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 672 ms
-2024-02-06T21:54:50.412+05:30  INFO 79387 --- [           main] org.mongodb.driver.client                : MongoClient with metadata {&quot;driver&quot;: {&quot;name&quot;: &quot;mongo-java-driver|sync|spring-boot&quot;, &quot;version&quot;: &quot;4.11.1&quot;}, &quot;os&quot;: {&quot;type&quot;: &quot;Darwin&quot;, ...
-2024-02-06T21:54:50.449+05:30  INFO 79387 --- [ehw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-howif0x-shard-00-01.j5u0ehw.mongodb.net:27017 to client view of cluster
-2024-02-06T21:54:50.467+05:30  INFO 79387 --- [ehw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-howif0x-shard-00-02.j5u0ehw.mongodb.net:27017 to client view of cluster
-2024-02-06T21:54:50.470+05:30  INFO 79387 --- [ehw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-howif0x-shard-00-00.j5u0ehw.mongodb.net:27017 to client view of cluster
-BeanA constructor called !!!
-BeanB constructor called !!!
-Setting property beanA of BeanB instance
-2024-02-06T21:54:50.793+05:30  INFO 79387 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path &#x27;&#x27;
-2024-02-06T21:54:50.799+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : Started WorkManagementApplication in 2.528 seconds (process running for 3.054)
-2024-02-06T21:54:50.898+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-howif0x-shard-00-00.j5u0ehw.mongodb.net...
-2024-02-06T21:54:50.898+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-howif0x-shard-00-01.j5u0ehw.mongodb.net...
-2024-02-06T21:54:50.898+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-howif0x-shard-00-02.j5u0ehw.mongodb.net...
-2024-02-06T21:54:50.902+05:30  INFO 79387 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Discovered replica set primary ac-howif0x-shard-00-01.j5u0ehw.mongodb.net:27017 with max election id 7fffffff0000000000000006 and max set version 1</code></pre><p id="7063a8f8-4706-4ba9-b033-37e44a870282" class="">
-</p><ol type="1" id="a8e015b4-cf48-4057-9791-56634141211e" class="numbered-list" start="1"><li><strong>Application Startup</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0e7d0bcf-469a-4a3e-9bd1-ec99153e36d7" class="code"><code class="language-Java">2024-02-06T21:54:48.510+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : Starting WorkManagementApplication using Java 21.0.2 with PID 79387 (/Users/parth.prajapati/IdeaProjects/WorkManagement/build/cla...</code></pre></li></ol><ol type="1" id="7766e3f6-edac-4e6f-8f0e-cfab33c301ee" class="numbered-list" start="2"><li>Profile Check<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a11d5115-dd6a-4d76-a5b0-3c294feb87f3" class="code"><code class="language-Java">2024-02-06T21:54:48.511+05:30  INFO 79387 --- [           main] c.p.w.WorkManagementApplication          : No active profile set, falling back to 1 default profile: &quot;default&quot;</code></pre></li></ol><ol type="1" id="f43ef989-8026-4acb-84fc-9cca8aed6c84" class="numbered-list" start="3"><li>Component Scanning:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1dd9d5dc-8c0f-48a0-ae0f-ca86826f618a" class="code"><code class="language-Java">2024-02-06T21:54:48.913+05:30  INFO 79387 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 MongoDB repository interfaces.</code></pre><p id="bf542fac-10be-4489-bf8d-249f9bbd406b" class="">Other component (i.e. Controller, Service ,..) scanning does not have logs.</p></li></ol><ol type="1" id="1f8239bd-2892-49af-bdbe-4a9821444cd2" class="numbered-list" start="4"><li><strong>Bean Registration and Initialization</strong></li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1bc3c236-b675-452d-b7ad-98c0ff10e48b" class="code"><code class="language-Java">BeanA constructor called !!!
-BeanB constructor called !!!</code></pre><p id="fde0aae7-e30b-4b61-9061-06cb52b4c872" class="">Here Bean for class BeanA and BeanB is created.</p><p id="d76cf7db-39c3-4df0-bbff-ea058126aab7" class="">
-</p><ol type="1" id="b9212fe0-2715-4b7d-ab33-c3d977d422c2" class="numbered-list" start="5"><li>Dependency Injection :<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ac39d0a4-6f1c-4764-89b1-3656178bf86e" class="code"><code class="language-Java">Setting property beanA of BeanB instance</code></pre><p id="8964c94d-7662-404a-ab2d-7e5fba41d5fa" class="">BeanB class calles dependency of class BeanA.</p><p id="f9e8f751-50c5-4752-8924-7b08203270b4" class="">
-</p></li></ol><ol type="1" id="e8db2de6-c504-44f9-a024-c553fbb5489d" class="numbered-list" start="6"><li>Starts Tomcate Server <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="65b7a36a-0f05-46cb-8f97-cb83fe0a85ab" class="code"><code class="language-Java">2024-02-06T21:54:50.793+05:30  INFO 79387 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path &#x27;&#x27;</code></pre><p id="f969adc7-3ac8-4f96-9f52-36ce0d6842b1" class="">
+</p><ol type="1" id="cfcfa564-09dd-4167-a6dc-9349b91cbb97" class="numbered-list" start="1"><li><strong>Application Startup</strong>: Spring Boot initializes the application context when the application starts.</li></ol><ol type="1" id="fdb512c9-1c74-4d0f-a630-b9b6e71392ae" class="numbered-list" start="2"><li>Profile Check : It checks for the any specific Profile. If not specified it will run as a “default” profile.</li></ol><ol type="1" id="975f9304-c10a-4781-9288-84e6bb7c76d9" class="numbered-list" start="3"><li><strong>Component Scanning</strong>: Spring scans the classpath for components, such as beans annotated with @Component, @Service, @Repository, or @Controller.</li></ol><ol type="1" id="63944b4a-8441-44b9-abcf-865568dde152" class="numbered-list" start="4"><li><strong>Bean Registration and Initialization</strong>: Spring registers these components as beans in the application context. Also Spring initializes the beans, which involves instantiating them and configuring their properties.</li></ol><ol type="1" id="46fb8c87-07e7-4767-8ea4-5820f98be029" class="numbered-list" start="5"><li><strong>Dependency Injection</strong>: Spring injects dependencies into the beans.</li></ol><ol type="1" id="6e63f2c2-aeb8-4a77-be0b-3df559b69212" class="numbered-list" start="6"><li>Servelet Starts : It starts the server. In our case it starts Tomcat server.</li></ol><p id="1a558951-0a24-447c-acea-c270001cba5e" class=""><br/>Lets Understand it using Logs :<br/></p><p id="79a24875-32c3-4f7c-bb6f-ea110427948e" class="">
+
+<h1>Spring Framework Initialization Process</h1>
+<p>An in-depth step-by-step guide through the initialization of a Spring Boot application.</p>
+
+<div class="step">
+    <h2>1. Starting the Application</h2>
+    Spring Boot starts by running the main method, which typically calls SpringApplication.run().
+    <pre>2024-02-02 10:15:30.123  INFO Starting MyApplication on my-computer with PID 12345 (...)</pre>
+
+</div>
+
+<div class="step">
+    <h2>2. Preparing the Environment</h2>
+    Spring sets up the application environment, loading application properties and profiles.
+    <pre>2024-02-02 10:15:30.456  INFO No active profile set, falling back to default profiles: default (...)</pre>
+</div>
+
+<div class="step">
+    <h2>3. Creating the ApplicationContext</h2>
+    Spring Boot then chooses an appropriate ApplicationContext type and initializes it.
+    <pre>2024-02-02 10:15:30.789  INFO Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext (...)</pre>
+</div>
+
+<div class="step">
+    <h2>4. Bean Definitions Loading</h2>
+    Bean definitions are loaded from component scanning, @Configuration classes, or XML files.
+    <pre>2024-02-02 10:15:31.012  INFO Mapped @Component / @Service / @Repository / @Controller (...)</pre>
+</div>
+
+<div class="step">
+    <h2>5. BeanFactoryPostProcessor Execution</h2>
+    Registered BeanFactoryPostProcessors are called, which allows for modification of bean definitions before they are instantiated.
+    BeanFactoryPostProcessors are part of the Spring IoC container's bean creation process. They work on the bean factory itself, allowing for the customization of bean definitions before the container instantiates any beans.
+
+    How It Works:
+    <ul>
+        <li>The ApplicationContext identifies all beans that implement the <code>BeanFactoryPostProcessor</code> interface during startup.</li>
+        <li>It then invokes the <code>postProcessBeanFactory</code> method on each one.</li>
+        <li>This method can modify the bean definitions, add new bean definitions, or even remove bean definitions.</li>
+        <li>This step occurs before any bean instances are created.</li>
+    </ul>
+
+    Typical Log Output for BeanFactory Post-Processors:
+
+    <pre>2024-02-02 10:15:31.234  INFO Running BeanFactoryPostProcessor 'myBeanFactoryPostProcessor' (...)</pre>
+</div>
+
+<div class="step">
+    <h2>6. Bean Instantiation</h2>
+    Beans are created, and dependency injection is performed. Singleton scoped beans are created at this stage unless they are lazily initialized.
+    <pre>2024-02-02 10:15:31.456  INFO Creating shared instance of singleton bean 'mySingletonBean' (...)</pre>
+</div>
+
+<div class="step">
+    <h2>7. BeanPostProcessor Execution</h2>
+    Spring processes the beans with registered BeanPostProcessors, which can modify the bean instances after they have been instantiated but before they are ready for use.
+    BeanPostProcessors come into play after the BeanFactoryPostProcessors and work on the bean instances themselves, rather than the definitions. They are used to perform some actions on the bean instance before and after it is initialized (i.e., before and after its initialization callbacks such as @PostConstruct methods or InitializingBean's afterPropertiesSet).
+
+    How It Works:
+    <ul>
+        <li>The ApplicationContext identifies all beans that implement the <code>BeanPostProcessor</code> interface during startup.</li>
+        <li>It then registers these for later callbacks, which are applied to every bean instance.</li>
+        <li>The <code>postProcessBeforeInitialization</code> method is called before a bean's initialization callbacks are invoked.</li>
+        <li>The <code>postProcessAfterInitialization</code> method is called after the bean's initialization callbacks have been invoked.</li>
+    </ul>
+
+    Typical Log Output for Bean Post-Processors:
+
+    <pre>2024-02-02 10:15:31.678  INFO Bean 'myBeanPostProcessor' of type [com.example.MyBeanPostProcessor] is not eligible for getting processed by all BeanPostProcessors (...)</pre>
+</div>
+
+<div class="step">
+    <h2>8. Initialization Methods Execution</h2>
+    The container calls any bean initialization callbacks, such as InitializingBean.afterPropertiesSet or custom init-methods.
+    <pre>2024-02-02 10:15:31.890  INFO Invoking afterPropertiesSet() on bean with name 'myInitializerBean' (...)</pre>
+</div>
+
+<div class="step">
+    <h2>9. Application Event Publishing</h2>
+    Spring publishes various types of application events, including ContextRefreshedEvent, ApplicationStartedEvent, and others.
+    <pre>2024-02-02 10:15:32.012  INFO Publishing ApplicationEvent to start application (...)</pre>
+</div>
+
+<div class="step">
+    <h2>10. Web Server Starting</h2>
+    If the application is a web application, the embedded server (like Tomcat) is started.
+    <pre>2024-02-02 10:15:32.234  INFO Tomcat started on port(s): 8080 (http) with context path '' (...)</pre>
+</div>
+<div class="step">
+    <h2>11. Application-Ready Event</h2>
+    The application is fully started and ready to serve requests.
+    <pre>2024-02-02 10:15:32.456  INFO Started MyApplication in 4.567 seconds (JVM running for 5.678)</pre>
+</div>
+<div class="step">
+    <h2>12. Shutdown Hook Registration</h2>
+    A shutdown hook is registered so that the application context can be closed gracefully when the JVM is shutting down.
+    <pre>2024-02-02 10:15:32.678  INFO JVM shutdown hook added to close the ApplicationContext (...)</pre>
+</div>
+
 </p><p id="1acc96f6-f69d-47dd-a947-8df84f3821fa" class="">
 </p></li></ol><h2 id="9ab4d0ea-456b-4cbc-9538-bc95ee906c1b" class="">Que : 2</h2><h3 id="54d05f09-3798-4f8e-8db0-085461cce546" class="">In code, you will see SpringLoadTest what does it do ?</h3><p id="39efae42-943a-4398-8fb8-7885d661e0fc" class="">
-</p><p id="5d823647-218f-4adb-bb0b-e6988ab57471" class="">First it Starts Spring configuration using FasterApplicationContext and Security context. Counts the time taken to Initialize it. </p><p id="7a10980b-1f4c-4b77-bc35-30748fe6b1e2" class="">It loggs the time taken for initialization in error log.</p><p id="05f71b2f-4a04-4876-9fc4-5cc50816072f" class="">
+</p><p id="5d823647-218f-4adb-bb0b-e6988ab57471" class="">This is a user defined function that follows the general initialization steps as described detailed way in the previous answer. </p><p id="05f71b2f-4a04-4876-9fc4-5cc50816072f" class="">
+
+<ul>
+	<li>First it Starts Spring configuration using FasterApplicationContext and Security context. Counts the time taken to Initialize it.</li>
+	<li>It logs the time taken for initialization in error log.</li>
+	<li>Then it defines the beans and initializes them.</li>
+	<li>Then it publishes the event including ContextRefreshedEvent	and ApplicationStartedEvent.</li>
+	<li>Then it starts the embedded WebServer and triggers an Applicaiton-Ready Event.</li>
+	<li>Finally the code terminates with a Shutdown Hook Registration.</li>
+</ul>
 </p><h2 id="f1bd4e20-3b04-41cc-a5f5-eaf74956f322" class="">Que : 3</h2><h3 id="f1161c1b-0831-4efe-b57e-977d41f6c377" class="">What is the difference between Auto-wiring a Service or getting it from ApplicationContext using SpringLocatorFactory?</h3><p id="8ea2dbba-0e7f-4306-8298-1394882dc814" class="">
 </p><ol type="1" id="9a90810c-3267-4843-9495-701401a0329e" class="numbered-list" start="1"><li><strong>Auto-wiring a Service</strong>:<ul id="c5b2634e-f5fe-4a35-990b-c315e733487d" class="bulleted-list"><li style="list-style-type:disc">Auto-wiring is a mechanism provided by Spring for automatic dependency injection.</li></ul><ul id="b11639be-d3d0-46ad-9255-a700c1cd3510" class="bulleted-list"><li style="list-style-type:disc">When you auto-wire a service, Spring automatically injects an instance of the service into the dependent component (such as a controller, another service, or a bean) based on the specified injection type (e.g., constructor injection, setter injection, or field injection) and the matching bean definition in the application context.</li></ul><ul id="93a997d9-8af8-47cb-b24c-87c5d362a5a9" class="bulleted-list"><li style="list-style-type:disc">Auto-wiring is convenient and commonly used, as it reduces the need for explicit configuration and manual instantiation of dependencies.</li></ul><p id="749f98f9-d859-4466-975b-1f348a57b440" class="">
 </p></li></ol><ol type="1" id="4d63ebd7-f53c-4681-831b-a8497ac70fab" class="numbered-list" start="2"><li><strong>Getting it from ApplicationContext using SpringLocatorFactory</strong>:<p id="7429444a-2d37-45ff-b937-9a34a6a51e22" class="">
@@ -714,9 +806,116 @@ BeanB constructor called !!!</code></pre><p id="fde0aae7-e30b-4b61-9061-06cb52b4
 </p><h2 id="ace5e291-4e44-46f9-bbc7-e4bc9ca934f0" class="">Que : 4</h2><h3 id="65e7e351-d1be-4c1f-8297-6229b309b820" class="">Diff between Auto-wiring using a constructor or separately as a variable ?</h3><p id="6a00d767-7428-42d9-8402-d2447435e4bd" class="">
 </p><p id="f61abbe2-840e-4ad0-8258-d63211961640" class=""><strong>Constructor Injection</strong></p><ul id="a23bc693-299f-44aa-ae0d-569d718b1378" class="bulleted-list"><li style="list-style-type:disc">In constructor injection, dependencies are injected through the constructor of a class.</li></ul><ul id="c7c31db1-1526-4988-88aa-0f888d1f312e" class="bulleted-list"><li style="list-style-type:disc">Constructor injection is considered a best practice in Spring because it ensures that all required dependencies are provided when an instance of the class is created. This makes the dependencies explicit and immutable once set.</li></ul><ul id="ba30c1ba-39cb-42b4-abcb-7d31c8307758" class="bulleted-list"><li style="list-style-type:disc">Constructor injection promotes better testability, as dependencies can be easily mocked or stubbed during unit testing.</li></ul><ul id="2e9d3f40-28ab-49f6-9e09-d2ad30fac8e2" class="bulleted-list"><li style="list-style-type:disc">Constructor injection also helps in enforcing immutability and promoting thread safety.</li></ul><p id="fe59a591-c444-4670-ab00-57413e66ec15" class="">
 </p><p id="7d16ba24-f3e3-4af6-aa07-650206c59ec6" class=""><strong>Field (Variable) Injection</strong></p><ul id="3b3799dd-1be6-44c7-8508-77dc51c33297" class="bulleted-list"><li style="list-style-type:disc">In field injection, dependencies are injected directly into class fields using  @Autowired annotations.</li></ul><ul id="2d29e04e-f1db-46a6-ae42-92aeeea11610" class="bulleted-list"><li style="list-style-type:disc">However, field injection can lead to hidden dependencies and can make the code harder to understand, as dependencies are not explicitly declared in the constructor.</li></ul><ul id="7cc43f2a-5864-4fe2-8cc4-297fed4b051d" class="bulleted-list"><li style="list-style-type:disc">Field injection can also make unit testing more challenging, as it may require the use of  frameworks like Mockito to mock dependencies.</li></ul><p id="bc80709d-294d-4362-996b-22e7b17ae0f1" class="">
+
+	<h1>Automatic Configuration in Spring</h1>
+    <p><strong>Question:</strong> How to do automatic configuration? (Why? Because it relieves headaches from Dev people).</p>
+    <p><strong>Answer:</strong></p>
+
+    <ol>
+        <li>
+            <strong>By Autoscanning</strong>
+            <p>
+                <code>@ComponentScan</code> enables Spring to automatically discover components from an application's classpath and create them as beans in the Spring application context. <code>@Service</code>, <code>@Repository</code>, and <code>@Controller</code> are specializations of <code>@Component</code> for different purposes but are treated the same by Spring.
+            </p>
+            <p>
+                Spring Boot introduces the <code>@SpringBootApplication</code> annotation which includes <code>@Configuration</code>, <code>@EnableAutoConfiguration</code>, and <code>@ComponentScan</code>. This triggers automatic component scanning within the application's package and registers them in the Spring's Application Context.
+            </p>
+        </li>
+        <li>
+            <strong>Along with AutoWiring:</strong>
+            <p>Spring's Autowiring feature automatically injects dependencies between beans.</p>
+            <p>Types of Autowiring:</p>
+            <ol type="i">
+                <li>Properties/ Field Injection</li>
+                <li>Setter Injection</li>
+                <li>Constructor Injection</li>
+            </ol>
+            <p><strong>@Autowired on Field/Properties</strong></p>
+            <p>Using <code>@Autowired</code> on a field eliminates the need for explicit getters and setters.</p>
+            <p>Example:</p>
+            <pre>
+<code>@Component("fooFormatter")
+public class FooFormatter {
+    public String format() {
+        return "foo";
+    }
+}
+
+@Component
+public class FooService {
+    @Autowired
+    private FooFormatter fooFormatter;
+}</code>
+            </pre>
+            <p>Advantages:</p>
+            <ul>
+                <li>Quick, convenient, and reduces boilerplate code.</li>
+            </ul>
+            <p>Disadvantages:</p>
+            <ul>
+                <li>Not suitable for mandatory dependencies as it may lead to uninitialized dependencies.</li>
+                <li>Makes testing harder because dependencies are not explicitly exposed.</li>
+            </ul>
+
+            <p><strong>@Autowired on Setters</strong></p>
+            <p>Spring can autowire dependencies by calling a setter method.</p>
+            <p>Example:</p>
+            <pre>
+<code>public class FooService {
+    private FooFormatter fooFormatter;
+
+    @Autowired
+    public void setFormatter(FooFormatter fooFormatter) {
+        this.fooFormatter = fooFormatter;
+    }
+}</code>
+            </pre>
+            <p>Advantages:</p>
+            <ul>
+                <li>Allows the object to exist without being fully initialized (useful for optional dependencies).</li>
+            </ul>
+            <p>Disadvantages:</p>
+            <ul>
+                <li>Can lead to partially constructed objects if not all setters are called.</li>
+            </ul>
+
+            <p><strong>@Autowired on Constructors</strong></p>
+            <p>Dependencies can also be injected through constructors.</p>
+            <p>Example:</p>
+            <pre>
+<code>public class FooService {
+    private final FooFormatter fooFormatter;
+
+    @Autowired
+    public FooService(FooFormatter fooFormatter) {
+        this.fooFormatter = fooFormatter;
+    }
+}</code>
+            </pre>
+            <p>Advantages:</p>
+            <ul>
+                <li>Ensures a bean is never constructed without its necessary dependencies.</li>
+                <li>Ideal for creating immutable objects.</li>
+                <li>Better for testing as dependencies can be explicitly provided.</li>
+            </ul>
+            <p>Disadvantages:</p>
+            <ul>
+                <li>Can lead to large constructors with many dependencies and potentially cyclic dependencies.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Conclusion</h2>
+    <p>In practice, a combination of constructor and setter injection is often seen, with constructor injection used for mandatory dependencies and setter injection for optional ones. Field injection is less preferred and is being discouraged for new Spring development.</p>
+    <ul>
+        <li>Constructor Injection is recommended for mandatory and immutable dependencies and is easier for testing.</li>
+        <li>Setter Injection is suitable for optional or changeable dependencies.</li>
+        <li>Field Injection should be used sparingly and is not recommended for critical or complex applications</li>
+	</ul>
+			
 </p><h2 id="968ec457-7793-45ad-990f-08c4b8051c14" class="">Que : 5</h2><h3 id="68f61d0b-eb77-47df-86d7-fdac230589ec" class="">When a micro-service is being deployed on a server, at what time spring initialisation starts ?</h3><p id="49e68127-e391-48c7-a523-5b0e44a51f16" class="">When the server starts up or when the microservice application is deployed to it, the server runtime environment begins initialization.</p><p id="f62f8d11-b2bd-44a9-aa0d-f3dfc1a760cc" class="">The Spring Boot framework kicks in during server startup. Spring Boot auto-configures various components and starts the Spring application context.</p><p id="0693c31a-d2e2-4dd1-9235-3e15621fafdf" class="">
 </p><h2 id="2e7fa7e8-69a5-47f9-8e6d-85dacd09e1b7" class="">Que : 6</h2><h3 id="a492cee5-9f88-4933-81c2-7bc7f79f98e1" class="">How to check cyclic dependency ?</h3><p id="5ad61978-9768-44e3-a96c-783181875b48" class="">
-</p><ol type="1" id="4ef7c11f-ff09-42de-a49a-a6e152b12373" class="numbered-list" start="1"><li>Manual Inspection :<ul id="0cf6ac28-26b7-4278-8ae4-b5b9d8261305" class="bulleted-list"><li style="list-style-type:disc">We can check each Bean manualy and can find dependency present or not. </li></ul><ul id="191ec6cf-a058-466e-819e-e0a4a465f310" class="bulleted-list"><li style="list-style-type:disc">It is very time consuming and it becomes hazard if the project is too complicated.</li></ul></li></ol><ol type="1" id="f771a471-8b38-49f4-b50a-12a72ffeabce" class="numbered-list" start="2"><li>Visual Inspection Tools:<ul id="7b9e92cc-0e55-48c0-a9b1-3ad4ab1444b2" class="bulleted-list"><li style="list-style-type:disc">We can use IDE plugins or tools like Spring Tool Suite (STS) or IntelliJ IDEA to visualize the dependency graph of your Spring application context.</li></ul><ul id="2e90aae9-8e08-496b-aeab-3a0cb0ae3e8c" class="bulleted-list"><li style="list-style-type:disc">These tools can generate dependency diagrams that help visualize the relationships between beans and detect cyclic dependencies.<p id="d03ee552-55c4-4ce3-87e6-ddb893a85503" class="">Ex: </p><figure id="9a1f4ddd-cfa6-44bb-afec-08daad2e57ef" class="image"><a href="Spring%20Que%20-%20Ans%208a5da64c72d94714a11eb79e15eb80cc/Untitled.png"><img style="width:1900px" src="Spring%20Que%20-%20Ans%208a5da64c72d94714a11eb79e15eb80cc/Untitled.png"/></a></figure><p id="57bee3ae-43e8-4294-afbb-9b6f611c03b2" class="">
+</p><ol type="1" id="4ef7c11f-ff09-42de-a49a-a6e152b12373" class="numbered-list" start="1"><li>Manual Inspection :<ul id="0cf6ac28-26b7-4278-8ae4-b5b9d8261305" class="bulleted-list"><li style="list-style-type:disc">We can check each Bean manually and can find dependency present or not. </li></ul><ul id="191ec6cf-a058-466e-819e-e0a4a465f310" class="bulleted-list"><li style="list-style-type:disc">It is very time consuming and it becomes hazard if the project is too complicated.</li></ul></li></ol><ol type="1" id="f771a471-8b38-49f4-b50a-12a72ffeabce" class="numbered-list" start="2"><li>Visual Inspection Tools:<ul id="7b9e92cc-0e55-48c0-a9b1-3ad4ab1444b2" class="bulleted-list"><li style="list-style-type:disc">We can use IDE plugins or tools like Spring Tool Suite (STS) or IntelliJ IDEA to visualize the dependency graph of your Spring application context.</li></ul><ul id="2e90aae9-8e08-496b-aeab-3a0cb0ae3e8c" class="bulleted-list"><li style="list-style-type:disc">These tools can generate dependency diagrams that help visualize the relationships between beans and detect cyclic dependencies.<p id="d03ee552-55c4-4ce3-87e6-ddb893a85503" class="">Ex: </p><figure id="9a1f4ddd-cfa6-44bb-afec-08daad2e57ef" class="image"><a href="Spring%20Que%20-%20Ans%208a5da64c72d94714a11eb79e15eb80cc/Untitled.png"><img style="width:1900px" src="Spring%20Que%20-%20Ans%208a5da64c72d94714a11eb79e15eb80cc/Untitled.png"/></a></figure><p id="57bee3ae-43e8-4294-afbb-9b6f611c03b2" class="">
 </p><p id="d7eb74c9-ce2a-47e0-9828-4cb8fa98d0ac" class="">Circular Dependency Detected: </p><figure id="b31c0605-f380-464c-95bf-9beecec0b87e" class="image"><a href="Spring%20Que%20-%20Ans%208a5da64c72d94714a11eb79e15eb80cc/Untitled%201.png"><img style="width:1822px" src="Spring%20Que%20-%20Ans%208a5da64c72d94714a11eb79e15eb80cc/Untitled%201.png"/></a></figure><p id="7b522ed8-e593-4216-952b-80c51239160b" class="">
 </p></li></ul></li></ol><ol type="1" id="0f2434fe-e78e-4ad5-bda4-876179c292cc" class="numbered-list" start="3"><li>Unit Testing:<ul id="e0ee43f9-18f4-4cc3-837d-50d161f2747a" class="bulleted-list"><li style="list-style-type:disc">We can write unit tests that instantiate the Spring application context and verify that beans can be successfully initialized without encountering cyclic dependencies.</li></ul></li></ol><ol type="1" id="f3f1bfc6-8956-4d6c-b487-f236b349719f" class="numbered-list" start="4"><li>Runtime Analysis:<ul id="5d45993f-0ab6-4992-8cbe-c73a7ba15b6e" class="bulleted-list"><li style="list-style-type:disc">Enable debug logging for the Spring framework and observe the log messages during application startup</li></ul><ul id="b7fbc406-73cb-4221-bb37-34556acd975b" class="bulleted-list"><li style="list-style-type:disc">It will show the error if it finds the circular dependency.</li></ul><p id="a09e4841-2082-4dd1-abd7-862e730b3ea5" class="">
 </p></li></ol><p id="13aee6d5-4459-43ef-aee6-26d6c85b83e9" class="">
@@ -762,6 +961,55 @@ public class BeanA {
         this.beanB = beanB;
     }
 }</code></pre><p id="7b58283f-3108-4604-b039-f434a9558462" class="">
+
+    <h2>4. Implement ApplicationContextAware and InitializingBean</h2>
+    <p>Implement ApplicationContextAware and InitializingBean to allow a bean to interact directly with the Spring container and perform initialization after all beans are set.</p>
+    <h3>Advantages:</h3>
+    <ul>
+        <li>Gives you full control over bean initialization.</li>
+        <li>Useful for complex dependency scenarios.</li>
+    </ul>
+    <h3>Disadvantages:</h3>
+    <ul>
+        <li>Increases coupling with Spring-specific interfaces.</li>
+        <li>More complex and can lead to boilerplate code.</li>
+    </ul>
+    <p>Example:</p>
+    <pre>
+        <code>
+@Component
+public class A implements ApplicationContextAware, InitializingBean {
+    private B b;
+    private ApplicationContext context;
+ 
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.context = applicationContext;
+    }
+ 
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        this.b = context.getBean(B.class);
+    }
+}
+
+@Component
+public class B {
+    // Similar setup for B if needed
+}</code>
+    </pre>
+
+    <h2>Conclusion</h2>
+    <p><strong>Question:</strong> So which method out of the above 4 methods to choose?</p>
+    <p><strong>Answer:</strong> When choosing a method to resolve cyclic dependencies, consider the following:</p>
+    <ul>
+        <li><strong>Simplicity vs. Complexity:</strong> Prefer simple solutions (@Lazy, Setter Injection) for straightforward scenarios. Use more complex approaches (ApplicationContextAware, InitializingBean) for intricate setups.</li>
+        <li><strong>Initialization Timing:</strong> If you need to ensure all dependencies are fully initialized before use, @PostConstruct and InitializingBean are more suitable.</li>
+        <li><strong>Coupling:</strong> ApplicationContextAware and InitializingBean increase coupling with Spring, which might affect testability and portability.</li>
+    </ul>
+    <p>In general, aim to design your components to avoid cyclic dependencies altogether. This might involve redesigning your class structure or introducing interface-based design to decouple components more effectively.</p>
+    <p>Reference: <a href="https://youtu.be/7toYcD8I5CU">https://youtu.be/7toYcD8I5CU</a></p>
+	
 </p><h2 id="d1a8ffce-4b50-4d57-9f27-a978b2961c39" class="">Que : 8</h2><h3 id="56416f25-4658-4a28-995e-c175f78596ed" class="">Is getting a cyclic dependency at first place is a precedent for wrong design or there can be a valid use case for this ?</h3><ul id="ab4ed45a-0fd3-42d1-8e1b-36f3d53ed51a" class="bulleted-list"><li style="list-style-type:disc">When we have a circular dependency, it’s likely we have a design problem and that the responsibilities are not well separated. It is not following the “Single Responsibility Principle”.</li></ul><ul id="d2154afe-9337-41ab-9ba9-12e1b7699c61" class="bulleted-list"><li style="list-style-type:disc">We should try to redesign the components properly so that their hierarchy is well designed and there is no need for circular dependencies.</li></ul><ul id="2fd0ee5b-e084-4629-bf7f-e5f3f66a2f06" class="bulleted-list"><li style="list-style-type:disc">However, there are many possible reasons we may not be able to do a redesign, such as legacy code, code that has already been tested and cannot be modified, not enough time or resources for a complete redesign, etc.</li></ul><ul id="c29e6541-3f77-490e-80b1-7a80106aabce" class="bulleted-list"><li style="list-style-type:disc">So in nutshell, Having a circular dependencies shows it is a bad design.</li></ul><p id="511c3551-e1b2-4033-abe9-bcecb96e31c3" class="">
 </p><h2 id="92666516-99e1-4b61-a808-2bfd36c43fb5" class="">Que : 9</h2><h3 id="3dbeaf61-8978-4490-999d-38fd053e6a32" class="">what happens if an interface has an implementation and if you try to Autowire that implmentation in the constructor without Qualifier ?</h3><p id="a039db1d-f544-4d83-9853-e1c247f9000a" class="">
 </p><p id="4dd30ac4-9a29-42a5-b1c4-e274ee1d0590" class="">If we injuct the interface in the constructor then,</p><p id="b557fcdb-8885-4b8d-bc73-e1c5d0c6a0d9" class="">There are Two cases:</p><ol type="1" id="f26f15a0-d50a-4672-a4f2-3c4b275251d7" class="numbered-list" start="1"><li>Only one implementation of that class is present:<ul id="f25e7906-ec1b-48c2-af1b-1315f0de64ed" class="bulleted-list"><li style="list-style-type:disc">In such case it will create a bean of that implementation class automatically.</li></ul></li></ol><ol type="1" id="01060a60-c8a3-41b2-a4e1-a5b98546b73a" class="numbered-list" start="2"><li>More than one implementation class is present :<ul id="66a392bc-b19f-4198-bdc7-f57f8536574b" class="bulleted-list"><li style="list-style-type:disc">In such case it will throw an error saying more than one implementation is present for creating the bean.</li></ul><ul id="b5f4601f-189b-418e-9854-c174348b90b6" class="bulleted-list"><li style="list-style-type:disc">In such cases we can use Qualifier to specify which implementaion to use. </li></ul><ul id="2c1023d9-c2e5-4858-8047-365f9d8b8f9f" class="bulleted-list"><li style="list-style-type:disc">Or we can put @Primary above one of the implementation class to tell that if more than one implementation is present use this class to create a bean.</li></ul></li></ol><p id="6100bc7b-c496-4229-9c29-b9da32cc443d" class="">
